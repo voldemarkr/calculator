@@ -1,29 +1,23 @@
 <?xml version="1.0"?>
-<project name="calculator_simple" default="run">
-    <target name="clean">
-        <delete dir="build"/>
-    </target>
-    <target name="compile" depends="clean">
+<project name="tic-tac-toe" default="run">
+    <target name="compile">
         <mkdir dir="build/classes"/>
         <javac destdir="build/classes" includeantruntime="false">
             <src path="src"/>
-            <classpath>
-            <pathelement location="lib/junit-4.13.1.jar"/>
-            </classpath>
         </javac>
     </target>
-    
+    <target name="test" depends="run">
+    <junit>
+        <classpath>
+            <pathelement location="${classes}"/>
+        </classpath>
+        <test name="UnitTests"/>
+    </junit>
+</target>
     <target name="run" depends="compile">
         <java classname="Main" classpath="build/classes"/>
     </target>
-    <target name="test" depends="compile">
-    <junit>
-        <classpath>
-            <pathelement location="build/classes"/>
-            <pathelement location="lib/junit-4.13.1.jar"/>
-        </classpath>
-        <test name="Tests"/>
-    </junit>
+    <target name="clean">
+        <delete dir="build"/>
     </target>
-
 </project>
