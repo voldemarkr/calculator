@@ -14,14 +14,16 @@
     </target>
     <target name="test" depends="compile">
     <junit>
+        <test name="Tests"/>
         <classpath>
             <pathelement location="build/classes"/>
             <pathelement location="lib/junit-4.13.1.jar"/>
         </classpath>
-        <test name="Tests"/>
     </junit>
     </target>
     <target name="run" depends="test">
-        <java classname="Main" classpath="build/classes"/>
+        <java classname="Main" classpath="build/classes" fork="true"/>
     </target>
+    
+
 </project>
