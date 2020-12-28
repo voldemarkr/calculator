@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="tic-tac-toe" default="run">
+<project name="calculator" default="run">
     <target name="compile">
         <mkdir dir="build/classes"/>
         <javac destdir="build/classes" includeantruntime="false">
@@ -11,7 +11,7 @@
         <classpath>
             <pathelement location="${classes}"/>
         </classpath>
-        <test name="UnitTests"/>
+        <test name="Tests"/>
     </junit>
 </target>
     <target name="run" depends="compile">
